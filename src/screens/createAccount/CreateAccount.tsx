@@ -7,11 +7,7 @@ import NextButton from '../../components/NextButton';
 import {Toast} from 'react-native-toast-message/lib/src/Toast';
 import CustomText from '../../components/CustomText';
 import PasswordCriteria from '../../components/PasswordCriteria';
-import Animated, {
-  FadeInUp,
-  useDerivedValue,
-  withTiming,
-} from 'react-native-reanimated';
+import {useDerivedValue, withTiming} from 'react-native-reanimated';
 import {EMAIL_REGEX} from '../../utils/Constants';
 import {useNavigation} from '@react-navigation/native';
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
@@ -146,9 +142,7 @@ const CreateAccount = () => {
           autoCapitalize="none"
           autoCorrect={false}
         />
-        <Animated.View
-          entering={FadeInUp}
-          style={{flexDirection: 'row', justifyContent: 'space-around'}}>
+        <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
           <View>
             <PasswordCriteria
               criteria="8 characters minimum"
@@ -165,7 +159,7 @@ const CreateAccount = () => {
               met={lowerCase}
             />
           </View>
-        </Animated.View>
+        </View>
       </View>
       <CustomText style={styles.terms}>
         Creating an account means you agree to our terms and condition and
