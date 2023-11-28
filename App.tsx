@@ -23,36 +23,38 @@ import {
   InfoToast,
 } from 'react-native-toast-message';
 import 'react-native-get-random-values';
-import CreateAccount from './src/screens/createAccount/CreateAccount';
-import CreateAccountProfile from './src/screens/createAccount/CreateAccountProfile';
+import CreateAccount from './src/screens/signup/CreateAccount';
+import CreateAccountProfile from './src/screens/signup/CreateAccountProfile';
 import Login from './src/screens/login/Login';
 import {FlexStyles} from './src/styles/FlexStyles';
+import {RootStackParamList} from './src/navigation/RootStackNavigationType';
 DropDownPicker.setTheme('DARK');
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
+
 const ToastConfig = {
   success: (props: BaseToastProps) => (
     <BaseToast
       {...props}
       style={{backgroundColor: Colors.coolgray, borderLeftColor: Colors.succes}}
-      text1Style={styles.white}
-      text2Style={styles.white}
+      text1Style={[styles.white, {fontFamily: 'Urbanist'}]}
+      text2Style={[styles.white, {fontFamily: 'Urbanist'}]}
     />
   ),
   error: (props: BaseToastProps) => (
     <ErrorToast
       {...props}
       style={{backgroundColor: Colors.coolgray, borderLeftColor: Colors.red}}
-      text1Style={styles.white}
-      text2Style={styles.white}
+      text1Style={[styles.white, {fontFamily: 'Urbanist'}]}
+      text2Style={[styles.white, {fontFamily: 'Urbanist'}]}
     />
   ),
   info: (props: BaseToastProps) => (
     <InfoToast
       {...props}
       style={{backgroundColor: Colors.coolgray, borderLeftColor: Colors.red}}
-      text1Style={styles.white}
-      text2Style={styles.white}
+      text1Style={[styles.white, {fontFamily: 'Urbanist'}]}
+      text2Style={[styles.white, {fontFamily: 'Urbanist'}]}
     />
   ),
 };
@@ -70,7 +72,7 @@ const App = () => {
           <NavigationContainer theme={{...DarkTheme}}>
             <Stack.Navigator screenOptions={{headerShown: false}}>
               {/* testing */}
-              {false ? (
+              {true ? (
                 <>
                   <Stack.Screen name="Map" component={MapScreen} />
                   <Stack.Group>
